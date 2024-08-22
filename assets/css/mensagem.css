@@ -1,0 +1,69 @@
+/* Estilo para o contêiner de mensagens */
+.messages-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    /* Define a largura máxima para o contêiner */
+    max-width: 800px;
+    margin: 0 auto; /* Centraliza horizontalmente */
+}
+
+/* Estilo para itens de mensagem */
+.message-item {
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+    background-color: white;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 100%; /* Garante que a mensagem ocupe toda a largura disponível */
+    max-width: 600px; /* Limita a largura máxima para melhor apresentação */
+}
+
+.message-item .message-author {
+    font-weight: bold;
+}
+
+.message-item .message-text {
+    margin: 10px 0;
+}
+
+.message-item .message-actions {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.message-item .message-actions button {
+    margin-left: 10px;
+}
+
+/* Estilos Responsivos */
+@media (min-width: 768px) {
+    /* Exibir o texto ao lado dos ícones da sidebar */
+    .sidebar .nav-link span {
+        display: inline;
+    }
+
+    /* Definir a largura da sidebar */
+    .sidebar {
+        width: 250px;
+    }
+
+    /* Ajustar a margem da content para alinhar com a sidebar */
+    .content {
+        margin-left: 250px;
+    }
+}
+
+@media (max-width: 767px) {
+    /* Ajustes para telas menores */
+    .sidebar .nav-link span {
+        display: none; /* Ocultar texto em telas menores */
+    }
+
+    /* Certifique-se de que a content ocupa toda a largura disponível */
+    .content {
+        margin-left: 0;
+    }
+}

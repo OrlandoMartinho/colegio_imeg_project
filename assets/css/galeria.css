@@ -1,0 +1,43 @@
+/* Estilo para o contêiner de fotos */
+.photos-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px; /* Espaço entre as fotos */
+    justify-content: center; /* Centraliza as fotos */
+    padding: 20px;
+    max-height: 400px; /* Define a altura máxima da galeria */
+    overflow-y: auto; /* Adiciona rolagem vertical se necessário */
+}
+
+/* Estilo para itens de foto */
+.photo-item {
+    position: relative;
+    width: 100%;
+    max-width: 300px; /* Largura máxima das fotos */
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden; /* Garante que as bordas arredondadas sejam visíveis */
+    background-color: #f8f9fa; /* Cor de fundo para a área da foto */
+}
+
+.photo-item img {
+    width: 100%;
+    height: 100%; /* Mantém a proporção da imagem */
+}
+
+.photo-actions {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Fundo semitransparente para os botões */
+    color: #fff;
+    text-align: center;
+    padding: 10px;
+}
+
+.photo-actions .btn {
+    margin: 0 5px;
+}
+
+

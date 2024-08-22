@@ -1,0 +1,88 @@
+/* Content styling */
+.table-wrapper {
+    width: 100%; 
+    max-height: 400px; 
+    overflow-y: auto; 
+    overflow-x: scroll; 
+    background-color: #FFF9F2;
+    border-radius: 8px; 
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1); 
+}
+
+/* Custom table styling */
+.table {
+    margin-bottom: 0; 
+    border-collapse: separate; 
+    width: 100%; 
+}
+
+.table thead {
+    background-color: #F4A22B;
+    color: #fff;
+}
+
+.table tbody tr {
+    background-color: #FFF9F2;
+}
+
+.table tbody tr:hover {
+    background-color: #FDEBD0;
+}
+
+.btn-edit, .btn-delete {
+    border: none;
+    background: none;
+    color: #000;
+    cursor: pointer;
+}
+
+.btn-edit:hover {
+    color: #007bff;
+}
+
+.btn-delete:hover {
+    color: #dc3545;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%; 
+        height: auto; 
+    }
+
+    .content {
+        margin-left: 0; 
+        padding: 10px;
+    }
+
+    .table-wrapper {
+        max-height: 300px;
+    }
+
+    .table thead {
+        font-size: 0.875rem; 
+    }
+
+    .table tbody tr {
+        font-size: 0.875rem;
+    }
+
+    .btn-edit, .btn-delete {
+        font-size: 0.75rem;
+    }
+}
+
+@media (max-width: 576px) {
+    .table-wrapper {
+        max-height: 200px;
+    }
+
+    .table thead, .table tbody tr {
+        font-size: 0.75rem; 
+    }
+
+    .btn-edit, .btn-delete {
+        font-size: 0.625rem;
+    }
+}
