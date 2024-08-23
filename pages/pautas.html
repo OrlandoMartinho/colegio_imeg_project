@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Colégio Imeg Dashboard - Pautas</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="../assets/css/home.css">
+</head>
+<body>
+    <div class="d-flex">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="d-flex align-items-center justify-content-center mb-4">
+                <img src="../assets/img/logo.png" alt="Logo" style="width: 50px;">
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.html">
+                        <i class="fa-solid fa-chart-line"></i><span>Estado</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mensagens.html">
+                        <i class="fa-solid fa-envelope"></i><span>Mensagens</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="galeria.html">
+                        <i class="fa-solid fa-image"></i><span>Destaques</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="alunos.html">
+                        <i class="fa-solid fa-users"></i><span>Alunos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pautas.html">
+                        <i class="fa-solid fa-table"></i><span>Pautas</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="mt-auto">
+                <a href="#" class="nav-link">
+                    <i class="fa-solid fa-sign-out-alt"></i><span>Sair</span>
+                </a>
+            </div>
+        </div>
+
+        <!-- Content -->
+        <div class="content flex-grow-1">
+            <div class="container mt-4">
+                <h2>Pautas</h2>
+              
+                <!-- Campo de pesquisa -->
+                <input type="text" id="searchInput" onkeyup="filterTable()" placeholder="Pesquisar por nome..." class="form-control mb-3">
+
+                <ul class="nav nav-tabs" id="courseTabs" role="tablist">
+                    <li class="nav-item">
+                        <a class="nav-link active" id="course1-tab" data-bs-toggle="tab" href="#course1" role="tab" aria-controls="course1" aria-selected="true" style="color: #000;">Contabilidade e Gestão</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="course2-tab" data-bs-toggle="tab" href="#course2" role="tab" aria-controls="course2" aria-selected="false" style="color: #000;">Informática Técnica</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="course3-tab" data-bs-toggle="tab" href="#course3" role="tab" aria-controls="course3" aria-selected="false" style="color: #000;">Técnico de Finanças</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="course4-tab" data-bs-toggle="tab" href="#course4" role="tab" aria-controls="course4" aria-selected="false" style="color: #000;">Técnico de Recursos Humanos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="course5-tab" data-bs-toggle="tab" href="#course5" role="tab" aria-controls="course5" aria-selected="false" style="color: #000;">Ciências Físicas e Biológicas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="course6-tab" data-bs-toggle="tab" href="#course6" role="tab" aria-controls="course6" aria-selected="false" style="color: #000;">Ciências Económicas e Jurídicas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="course7-tab" data-bs-toggle="tab" href="#course7" role="tab" aria-controls="course7" aria-selected="false" style="color: #000;">Técnico de Comércio</a>
+                    </li>
+                </ul>
+                <div class="tab-content mt-3" id="courseTabsContent">
+                    <div class="tab-pane fade show active" id="course1" role="tabpanel" aria-labelledby="course1-tab">
+                        <!-- Tabela para Curso 1 -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nome do Aluno</th>
+                                        <th>Média</th>
+                                        <th>Situação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Aluno A</td>
+                                        <td>8.5</td>
+                                        <td>Aprovado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Aluno B</td>
+                                        <td>7.0</td>
+                                        <td>Aprovado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Aluno C</td>
+                                        <td>5.0</td>
+                                        <td>Recuperação</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="course2" role="tabpanel" aria-labelledby="course2-tab">
+                        <!-- Tabela para Curso 2 -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nome do Aluno</th>
+                                        <th>Média</th>
+                                        <th>Situação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Aluno D</td>
+                                        <td>9.0</td>
+                                        <td>Aprovado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Aluno E</td>
+                                        <td>6.5</td>
+                                        <td>Recuperação</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Aluno F</td>
+                                        <td>4.5</td>
+                                        <td>Reprovado</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="course3" role="tabpanel" aria-labelledby="course3-tab">
+                        <!-- Tabela para Curso 3 -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nome do Aluno</th>
+                                        <th>Média</th>
+                                        <th>Situação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Aluno G</td>
+                                        <td>7.5</td>
+                                        <td>Aprovado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Aluno H</td>
+                                        <td>6.0</td>
+                                        <td>Recuperação</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Aluno I</td>
+                                        <td>3.5</td>
+                                        <td>Reprovado</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="course4" role="tabpanel" aria-labelledby="course4-tab">
+                        <!-- Tabela para Curso 4 -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nome do Aluno</th>
+                                        <th>Média</th>
+                                        <th>Situação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Aluno J</td>
+                                        <td>8.0</td>
+                                        <td>Aprovado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Aluno K</td>
+                                        <td>5.5</td>
+                                        <td>Recuperação</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Aluno L</td>
+                                        <td>2.0</td>
+                                        <td>Reprovado</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="course5" role="tabpanel" aria-labelledby="course5-tab">
+                        <!-- Tabela para Curso 5 -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nome do Aluno</th>
+                                        <th>Média</th>
+                                        <th>Situação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Aluno M</td>
+                                        <td>7.8</td>
+                                        <td>Aprovado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Aluno N</td>
+                                        <td>5.9</td>
+                                        <td>Recuperação</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Aluno O</td>
+                                        <td>4.0</td>
+                                        <td>Reprovado</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="course6" role="tabpanel" aria-labelledby="course6-tab">
+                        <!-- Tabela para Curso 6 -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nome do Aluno</th>
+                                        <th>Média</th>
+                                        <th>Situação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Aluno P</td>
+                                        <td>9.2</td>
+                                        <td>Aprovado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Aluno Q</td>
+                                        <td>7.3</td>
+                                        <td>Aprovado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Aluno R</td>
+                                        <td>4.8</td>
+                                        <td>Recuperação</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="course7" role="tabpanel" aria-labelledby="course7-tab">
+                        <!-- Tabela para Curso 7 -->
+                        <div class="table-responsive">
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>Id</th>
+                                        <th>Nome do Aluno</th>
+                                        <th>Média</th>
+                                        <th>Situação</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>1</td>
+                                        <td>Aluno S</td>
+                                        <td>8.3</td>
+                                        <td>Aprovado</td>
+                                    </tr>
+                                    <tr>
+                                        <td>2</td>
+                                        <td>Aluno T</td>
+                                        <td>6.6</td>
+                                        <td>Recuperação</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3</td>
+                                        <td>Aluno U</td>
+                                        <td>3.1</td>
+                                        <td>Reprovado</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
