@@ -1,6 +1,61 @@
+<?php
+// Conexão com o banco de dados
+$servername = "localhost"; // ou o nome do seu servidor
+$username = "root"; // seu nome de usuário do banco de dados
+$password = ""; // sua senha do banco de dados
+$dbname = "colegio_imeg_bd";
+
+// Criação da conexão
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+// Verificação da conexão
+if ($conn->connect_error) {
+    die("Falha na conexão: " . $conn->connect_error);
+}
+
+// Função para buscar cursos
+function getCourses($conn) {
+    $sql = "SELECT * FROM courses"; // Supondo que o nome da tabela seja `courses`
+    $result = $conn->query($sql);
+    return $result;
+}
+
+// Lógica para adicionar curso
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['action'])) {
+    $action = $_POST['action'];
+
+    if ($action == 'add') {
+        $name = $conn->real_escape_string($_POST['name']);
+        $sql = "INSERT INTO courses (name) VALUES ('$name')";
+        if ($conn->query($sql) === TRUE) {
+            echo "<script>alert('Curso cadastrado com sucesso!');
+            </script>";
+        } else {
+            echo "<script>alert('Erro ao cadastrar curso: " . $conn->error . "');</script>";
+        }
+    } elseif ($action == 'edit') {
+        $id = (int)$_POST['id'];
+        $name = $conn->real_escape_string($_POST['name']);
+        $sql = "UPDATE courses SET name='$name' WHERE id_course=$id";
+        if ($conn->query($sql) === TRUE) {
+            echo "<script>alert('Curso atualizado com sucesso!'); </script>";
+        } else {
+            echo "<script>alert('Erro ao atualizar curso: " . $conn->error . "');</script>";
+        }
+    } elseif ($action == 'delete') {
+        $id = (int)$_POST['id'];
+        $sql = "DELETE FROM courses WHERE id_course=$id";
+        if ($conn->query($sql) === TRUE) {
+            echo "<script>alert('Curso excluído com sucesso!'); </script>";
+        } else {
+            echo "<script>alert('Erro ao excluir curso: " . $conn->error . "');</script>";
+        }
+    }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,7 +69,6 @@
     <link rel="stylesheet" href="../assets/css/home.css">
     <link rel="stylesheet" href="../assets/css/main.css">
 </head>
-
 <body>
     <div class="d-flex">
         <!-- Sidebar -->
@@ -44,7 +98,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="courses.html">
+                    <a class="nav-link active" href="courses.php">
                         <i class="fa-solid fa-book"></i><span>Cursos</span>
                     </a>
                 </li>
@@ -88,32 +142,23 @@
                             </tr>
                         </thead>
                         <tbody id="courseTableBody">
-                            <!-- Exemplo de registros -->
-                            <tr>
-                                <td>1</td>
-                                <td>Contabilidade e Gestão</td>
-                                <td>
-                                    <a href="#" class="btn btn-warning btn-sm" onclick="openEditModal(1, 'Contabilidade e Gestão')">
-                                        <i class="fa-solid fa-pen"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-danger btn-sm" onclick="openDeleteModal(1)">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Informática Técnica</td>
-                                <td>
-                                    <a href="#" class="btn btn-warning btn-sm" onclick="openEditModal(2, 'Informática Técnica')">
-                                        <i class="fa-solid fa-pen"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-danger btn-sm" onclick="openDeleteModal(2)">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <!-- Adicione mais registros aqui -->
+                            <?php
+                            $courses = getCourses($conn);
+                            while ($row = $courses->fetch_assoc()) {
+                                echo "<tr>
+                                    <td>{$row['id_course']}</td>
+                                    <td>{$row['name']}</td>
+                                    <td>
+                                        <a href='#' class='btn btn-warning btn-sm' onclick='openEditModal({$row['id_course']}, \"{$row['name']}\")'>
+                                            <i class='fa-solid fa-pen'></i>
+                                        </a>
+                                        <a href='#' class='btn btn-danger btn-sm' onclick='openDeleteModal({$row['id_course']})'>
+                                            <i class='fa-solid fa-trash'></i>
+                                        </a>
+                                    </td>
+                                </tr>";
+                            }
+                            ?>
                         </tbody>
                     </table>
                 </div>
@@ -130,10 +175,11 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formCadastroCurso">
+                    <form id="formCadastroCurso" method="post">
+                        <input type="hidden" name="action" value="add">
                         <div class="mb-3">
                             <label for="inputCursoNome" class="form-label">Nome do Curso</label>
-                            <input type="text" class="form-control" id="inputCursoNome" placeholder="Digite o nome do curso">
+                            <input type="text" class="form-control" id="inputCursoNome" name="name" placeholder="Digite o nome do curso">
                         </div>
                         <button type="submit" class="btn btn-primary">Salvar</button>
                     </form>
@@ -151,11 +197,12 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formEditarCurso">
-                        <input type="hidden" id="editCursoId">
+                    <form id="formEditarCurso" method="post">
+                        <input type="hidden" name="action" value="edit">
+                        <input type="hidden" id="editCursoId" name="id">
                         <div class="mb-3">
                             <label for="editInputCursoNome" class="form-label">Nome do Curso</label>
-                            <input type="text" class="form-control" id="editInputCursoNome" placeholder="Digite o nome do curso">
+                            <input type="text" class="form-control" id="editInputCursoNome" name="name" placeholder="Digite o nome do curso">
                         </div>
                         <button type="submit" class="btn btn-primary">Salvar alterações</button>
                     </form>
@@ -176,14 +223,17 @@
                     Tem certeza de que deseja excluir este curso? Esta ação não pode ser desfeita.
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" id="confirmDeleteButton">Excluir</button>
+                    <form id="formDeleteCurso" method="post">
+                        <input type="hidden" name="action" value="delete">
+                        <input type="hidden" id="deleteCursoId" name="id">
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <div id="preloader"></div>
-    <script src="../../assets/js/loader.js"></script>
+
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/vendor/php-email-form/validate.js"></script>
     <script src="../assets/vendor/aos/aos.js"></script>
@@ -192,9 +242,40 @@
     <script src="../assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
     <script src="../assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
     <script src="../assets/vendor/swiper/swiper-bundle.min.js"></script>
-    <script src="../assets/js/courses.js">
-      
+    <script>
+        function filterTable() {
+            let input = document.getElementById('searchInput').value.toLowerCase();
+            let rows = document.querySelectorAll('table tbody tr');
+
+            rows.forEach(row => {
+                let cells = row.querySelectorAll('td');
+                let found = false;
+
+                cells.forEach(cell => {
+                    if (cell.textContent.toLowerCase().includes(input)) {
+                        found = true;
+                    }
+                });
+
+                row.style.display = found ? '' : 'none';
+            });
+        }
+
+        function openEditModal(id, name) {
+            document.getElementById('editCursoId').value = id;
+            document.getElementById('editInputCursoNome').value = name;
+            new bootstrap.Modal(document.getElementById('editarModal')).show();
+        }
+
+        function openDeleteModal(id) {
+            document.getElementById('deleteCursoId').value = id;
+            new bootstrap.Modal(document.getElementById('confirmDeleteModal')).show();
+        }
     </script>
 </body>
-
 </html>
+
+<?php
+// Fechamento da conexão
+$conn->close();
+?>

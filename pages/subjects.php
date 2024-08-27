@@ -1,7 +1,46 @@
+<?php
+// Conexão com o banco de dados
+$host = 'localhost';
+$dbname = 'colegio_imeg_bd';
+$username = 'root';
+$password = '';
+
+try {
+    $pdo = new PDO("mysql:host=$host;dbname=$dbname", $username, $password);
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die('Conexão falhou: ' . $e->getMessage());
+}
+
+// Adicionar disciplina
+if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+    if (isset($_POST['action']) && $_POST['action'] == 'add') {
+        $stmt = $pdo->prepare("INSERT INTO subjects (name, id_course) VALUES (?, ?)");
+        $stmt->execute([$_POST['name'], $_POST['id_course']]);
+    } elseif (isset($_POST['action']) && $_POST['action'] == 'edit') {
+        $stmt = $pdo->prepare("UPDATE subjects SET name = ?, id_course = ? WHERE id_subject = ?");
+        $stmt->execute([$_POST['name'], $_POST['id_course'], $_POST['id_subject']]);
+    } elseif (isset($_POST['action']) && $_POST['action'] == 'delete') {
+        $stmt = $pdo->prepare("DELETE FROM subjects WHERE id_subject = ?");
+        $stmt->execute([$_POST['id_subject']]);
+    }
+}
+
+// Obter disciplinas
+$stmt = $pdo->query("SELECT s.id_subject, s.name AS subject_name, c.name AS course_name 
+                     FROM subjects s 
+                     JOIN courses c ON s.id_course = c.id_course");
+$subjects = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+// Obter cursos
+$courses = $pdo->query("SELECT * FROM courses")->fetchAll(PDO::FETCH_ASSOC);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
+    <!-- Cabeçalho permanece o mesmo -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerenciamento de Disciplinas</title>
@@ -18,7 +57,7 @@
 
 <body>
     <div class="d-flex">
-        <!-- Sidebar -->
+        <!-- Sidebar permanece o mesmo -->
         <div class="sidebar">
             <div class="d-flex align-items-center justify-content-center mb-4">
                 <img src="../assets/img/logo.png" alt="Logo" style="width: 50px;">
@@ -80,7 +119,7 @@
 
                 <!-- Tabela de Disciplinas -->
                 <div class="table-responsive mt-3">
-                    <table class="table table-bordered">
+                    <table class="table table-bordered" id="subjectTable">
                         <thead>
                             <tr>
                                 <th>ID</th>
@@ -90,34 +129,21 @@
                             </tr>
                         </thead>
                         <tbody id="subjectTableBody">
-                            <!-- Exemplo de registros -->
+                            <?php foreach ($subjects as $subject): ?>
                             <tr>
-                                <td>1</td>
-                                <td>Matemática Aplicada</td>
-                                <td>Contabilidade e Gestão</td>
+                                <td><?php echo htmlspecialchars($subject['id_subject']); ?></td>
+                                <td><?php echo htmlspecialchars($subject['subject_name']); ?></td>
+                                <td><?php echo htmlspecialchars($subject['course_name']); ?></td>
                                 <td>
-                                    <a href="#" class="btn btn-warning btn-sm" onclick="openEditModal(1, 'Matemática Aplicada', 1)">
+                                    <a href="#" class="btn btn-warning btn-sm" onclick="openEditModal(<?php echo htmlspecialchars($subject['id_subject']); ?>, '<?php echo htmlspecialchars($subject['subject_name']); ?>', <?php echo htmlspecialchars($subject['id_subject']); ?>)">
                                         <i class="fa-solid fa-pen"></i>
                                     </a>
-                                    <a href="#" class="btn btn-danger btn-sm" onclick="openDeleteModal(1)">
+                                    <a href="#" class="btn btn-danger btn-sm" onclick="openDeleteModal(<?php echo htmlspecialchars($subject['id_subject']); ?>)">
                                         <i class="fa-solid fa-trash"></i>
                                     </a>
                                 </td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Programação</td>
-                                <td>Informática Técnica</td>
-                                <td>
-                                    <a href="#" class="btn btn-warning btn-sm" onclick="openEditModal(2, 'Programação', 2)">
-                                        <i class="fa-solid fa-pen"></i>
-                                    </a>
-                                    <a href="#" class="btn btn-danger btn-sm" onclick="openDeleteModal(2)">
-                                        <i class="fa-solid fa-trash"></i>
-                                    </a>
-                                </td>
-                            </tr>
-                            <!-- Adicione mais registros aqui -->
+                            <?php endforeach; ?>
                         </tbody>
                     </table>
                 </div>
@@ -134,17 +160,18 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formCadastroDisciplina">
+                    <form id="formCadastroDisciplina" method="post">
+                        <input type="hidden" name="action" value="add">
                         <div class="mb-3">
                             <label for="inputDisciplinaNome" class="form-label">Nome da Disciplina</label>
-                            <input type="text" class="form-control" id="inputDisciplinaNome" placeholder="Digite o nome da disciplina">
+                            <input type="text" class="form-control" id="inputDisciplinaNome" name="name" placeholder="Digite o nome da disciplina" required>
                         </div>
                         <div class="mb-3">
                             <label for="inputCurso" class="form-label">Curso</label>
-                            <select class="form-select" id="inputCursoCadastro">
-                                <option value="1">Contabilidade e Gestão</option>
-                                <option value="2">Informática Técnica</option>
-                                <!-- Adicione mais opções de cursos aqui -->
+                            <select class="form-select" id="inputCursoCadastro" name="id_course" required>
+                                <?php foreach ($courses as $course): ?>
+                                <option value="<?php echo htmlspecialchars($course['id_course']); ?>"><?php echo htmlspecialchars($course['name']); ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Salvar</button>
@@ -163,18 +190,19 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <form id="formEditarDisciplina">
-                        <input type="hidden" id="editDisciplinaId">
+                    <form id="formEditarDisciplina" method="post">
+                        <input type="hidden" name="action" value="edit">
+                        <input type="hidden" id="editDisciplinaId" name="id_subject">
                         <div class="mb-3">
                             <label for="editInputDisciplinaNome" class="form-label">Nome da Disciplina</label>
-                            <input type="text" class="form-control" id="editInputDisciplinaNome" placeholder="Digite o nome da disciplina">
+                            <input type="text" class="form-control" id="editInputDisciplinaNome" name="name" placeholder="Digite o nome da disciplina" required>
                         </div>
                         <div class="mb-3">
                             <label for="editInputCurso" class="form-label">Curso</label>
-                            <select class="form-select" id="editInputCurso">
-                                <option value="1">Contabilidade e Gestão</option>
-                                <option value="2">Informática Técnica</option>
-                                <!-- Adicione mais opções de cursos aqui -->
+                            <select class="form-select" id="editInputCurso" name="id_course" required>
+                                <?php foreach ($courses as $course): ?>
+                                <option value="<?php echo htmlspecialchars($course['id_course']); ?>"><?php echo htmlspecialchars($course['name']); ?></option>
+                                <?php endforeach; ?>
                             </select>
                         </div>
                         <button type="submit" class="btn btn-primary">Salvar alterações</button>
@@ -196,14 +224,50 @@
                     Tem certeza de que deseja excluir esta disciplina? Esta ação não pode ser desfeita.
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-danger" id="confirmDeleteButton">Excluir</button>
+                    <form id="formExcluirDisciplina" method="post">
+                        <input type="hidden" name="action" value="delete">
+                        <input type="hidden" id="deleteDisciplinaId" name="id_subject">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                        <button type="submit" class="btn btn-danger">Excluir</button>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
-    <div id="preloader"></div>
-    <script src="../../assets/js/loader.js"></script>
+
+    <!-- Javascript -->
+    <script>
+        function openEditModal(id, name, course_id) {
+            document.getElementById('editDisciplinaId').value = id;
+            document.getElementById('editInputDisciplinaNome').value = name;
+            document.getElementById('editInputCurso').value = course_id;
+            var modal = new bootstrap.Modal(document.getElementById('editarModal'));
+            modal.show();
+        }
+
+        function openDeleteModal(id) {
+            document.getElementById('deleteDisciplinaId').value = id;
+            var modal = new bootstrap.Modal(document.getElementById('confirmDeleteModal'));
+            modal.show();
+        }
+
+        function filterTable() {
+            var input = document.getElementById("searchInput");
+            var filter = input.value.toLowerCase();
+            var table = document.getElementById("subjectTable");
+            var tr = table.getElementsByTagName("tr");
+
+            for (var i = 1; i < tr.length; i++) {
+                var td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    var txtValue = td.textContent || td.innerText;
+                    tr[i].style.display = txtValue.toLowerCase().indexOf(filter) > -1 ? "" : "none";
+                }
+            }
+        }
+    </script>
+
+    <!-- Scripts JS -->
     <script src="../assets/js/subjects.js"></script>
     <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="../assets/vendor/php-email-form/validate.js"></script>
