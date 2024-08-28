@@ -40,6 +40,11 @@
   --contrast-color: #ffffff;
 }
 
+.table{
+ width:100%;
+ overflow:auto;
+}
+
 /* Smooth scroll */
 :root {
   scroll-behavior: smooth;
