@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+
+// Check if user is logged in and if user_id is 1
+if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != 1) {
+    header('Location: login.php'); // Redirect to login page if not logged in or user_id is not 1
+    exit();
+}
 // Conexão com o banco de dados
 $host = 'localhost';
 $dbname = 'colegio_imeg_bd';
@@ -64,43 +72,43 @@ $courses = $pdo->query("SELECT * FROM courses")->fetchAll(PDO::FETCH_ASSOC);
             </div>
             <ul class="nav flex-column">
                 <li class="nav-item">
-                    <a class="nav-link" href="home.html">
+                    <a class="nav-link" href="home.php">
                         <i class="fa-solid fa-chart-line"></i><span>Estado</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="mensagens.html">
+                    <a class="nav-link" href="mensagens.php">
                         <i class="fa-solid fa-envelope"></i><span>Mensagens</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="galeria.html">
+                    <a class="nav-link active" href="galeria.php">
                         <i class="fa-solid fa-image"></i><span>Destaques</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="alunos.html">
+                    <a class="nav-link" href="alunos.php">
                         <i class="fa-solid fa-users"></i><span>Alunos</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" href="courses.html">
+                    <a class="nav-link" href="courses.php">
                         <i class="fa-solid fa-book"></i><span>Cursos</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="subjects.html">
+                    <a class="nav-link" href="subjects.php">
                         <i class="fa-solid fa-book-open"></i><span>Disciplinas</span>
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="grades.html">
+                    <a class="nav-link" href="grades.php">
                         <i class="fa-solid fa-table"></i><span>Notas</span>
                     </a>
                 </li>
             </ul>
             <div class="mt-auto">
-                <a href="#" class="nav-link">
+                <a href="logout.php" class="nav-link">
                     <i class="fa-solid fa-sign-out-alt"></i><span>Sair</span>
                 </a>
             </div>

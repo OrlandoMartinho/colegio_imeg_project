@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Complexo Escolar Privado IMEG</title>
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+
+  <!-- Favicons -->
+  <link href="assets/img/logo.png" rel="icon">
+  <link href="assets/img/apple-touch-icon.png" rel="apple-touch-icon">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="assets/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+  <link href="assets/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+  <!-- Main CSS File -->
+  <link href="assets/css/main.css" rel="stylesheet">
+
+ 
+</head>
+
+<body class="index-page">
+
+  <header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+
+      <a href="index.php" class="logo d-flex align-items-center me-auto me-xl-0">
+       
+        <img src="assets/img/logo.png" alt="" > 
+        <h1 class="sitename">IMEG</h1><span>.</span>
+      </a>
+
+      <nav id="navmenu" class="navmenu">
+        <ul>
+          <li><a href="index.php#hero" class="active">Página inicial</a></li>
+          <li><a href="index.php#about">Sobre</a></li>
+          <li><a href="index.php#services">Cursos</a></li>
+          <li><a href="index.php#portfolio">Destaques</a></li>
+          <li><a href="index.php#contact">Contactos</a></li>
+        </ul>
+        <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+      </nav>
+
+      <a class="btn-getstarted" href="pages/login.php">Entrar</a>
+
+    </div>
+  </header>
+  <a href="https://wa.me/numero" class="whatsapp-button" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero section dark-background">
+
+      <img src="assets/img/hero-bg.jpg" alt="" data-aos="fade-in">
+
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-10">
+            <h2 data-aos="fade-up" data-aos-delay="100">Bem vindo ao nosso site</h2>
+            <p data-aos="fade-up" data-aos-delay="200">Venha fazer parte do futuro com uma educação de qualidade e construa uma carreira de sucesso no Complexo Escolar IMEG.</p>
+          </div>
+         
+        </div>
+      </div>
+
+    </section><!-- /Hero Section -->
+
+    <a href="https://wa.me/244931391399" id="whatsapp-link" class=" d-flex align-items-center justify-content-center"><i class="bi bi-whatsapp"></i></a>
+    <!-- About Section -->
+    <section id="about" class="about section light-background">
+
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+        <div class="row align-items-xl-center gy-5">
+
+          <div class="col-xl-5 content">
+            <h3>Sobre Nós</h3>
+            <h2>No Complexo Escolar IMEG, acreditamos que a educação é a chave para o futuro</h2>
+            <p>Nossa missão é proporcionar uma educação de excelência, preparando nossos alunos para enfrentar os desafios do mundo moderno com competência, ética e responsabilidade</p>
+            
+          </div>
+
+          <div class="col-xl-7">
+            <div class="row gy-4 icon-boxes">
+          
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="icon-box">
+                  <i class="bi bi-buildings"></i>
+                  <h3>Educação de Qualidade</h3>
+                  <p>Oferecemos uma educação que vai além da sala de aula, focada em formar cidadãos preparados para os desafios do futuro.</p>
+                </div>
+              </div> <!-- End Icon Box -->
+          
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="icon-box">
+                  <i class="bi bi-clipboard-pulse"></i>
+                  <h3>Corpo Docente Especializado</h3>
+                  <p>Nossa equipe de professores é formada por profissionais qualificados e dedicados ao desenvolvimento integral dos alunos.</p>
+                </div>
+              </div> <!-- End Icon Box -->
+          
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="icon-box">
+                  <i class="bi bi-command"></i>
+                  <h3>Infraestrutura Moderna</h3>
+                  <p>Dispomos de uma infraestrutura completa, com laboratórios de última geração e ambientes projetados para o aprendizado prático.</p>
+                </div>
+              </div> <!-- End Icon Box -->
+          
+              <div class="col-md-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="icon-box">
+                  <i class="bi bi-graph-up-arrow"></i>
+                  <h3>Atividades Extracurriculares</h3>
+                  <p>Incentivamos a participação em atividades extracurriculares que complementam a formação acadêmica e pessoal dos nossos alunos.</p>
+                </div>
+              </div> <!-- End Icon Box -->
+          
+            </div>
+          </div>
+          
+
+        </div>
+      </div>
+
+    </section>
+
+    <!-- Stats Section -->
+    <!-- Stats Section -->
+<section id="stats" class="stats section dark-background">
+
+  <img src="assets/img/5.jpg" alt="" data-aos="fade-in">
+
+  <div class="container position-relative" data-aos="fade-up" data-aos-delay="100">
+
+    <div class="row gy-4">
+
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <span data-purecounter-start="0" data-purecounter-end="500" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Alunos Formados</p>
+        </div>
+      </div><!-- End Stats Item -->
+
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <span data-purecounter-start="0" data-purecounter-end="6" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Cursos Oferecidos</p>
+        </div>
+      </div><!-- End Stats Item -->
+
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <span data-purecounter-start="0" data-purecounter-end="12000" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Horas de Ensino</p>
+        </div>
+      </div><!-- End Stats Item -->
+
+      <div class="col-lg-3 col-md-6">
+        <div class="stats-item text-center w-100 h-100">
+          <span data-purecounter-start="0" data-purecounter-end="60" data-purecounter-duration="1" class="purecounter"></span>
+          <p>Professores</p>
+        </div>
+      </div><!-- End Stats Item -->
+
+    </div>
+
+  </div>
+
+</section>
+<!-- /Stats Section -->
+
+  <!-- Services Section -->
+<!-- Services Section -->
+<section id="services" class="services section">
+
+  <!-- Section Title -->
+  <div class="container section-title" data-aos="fade-up">
+    <h2>Cursos</h2>
+    <p>Descubra os diversos cursos médio técnicos oferecidos pelo Complexo Escolar IMEG.</p>
+  </div><!-- End Section Title -->
+
+  <div class="container">
+
+    <div class="row gy-4">
+  
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item d-flex">
+          <div class="photo flex-shrink-0">
+            <img src="assets/img/01.jpg" alt="Contabilidade e Gestão" class="course-photo">
+          </div>
+          <div>
+            <h4 class="title">Contabilidade e Gestão</h4>
+            <p class="description">Curso voltado para formar profissionais capacitados em administrar e gerenciar recursos financeiros e humanos.</p>
+          </div>
+        </div>
+      </div><!-- End Course Item -->
+  
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-item d-flex">
+          <div class="photo flex-shrink-0">
+            <img src="assets/img/02.jpeg" alt="Informática Técnica" class="course-photo">
+          </div>
+          <div>
+            <h4 class="title">Informática Técnica</h4>
+            <p class="description">Curso focado em formar técnicos especialistas em tecnologias de informação e comunicação.</p>
+          </div>
+        </div>
+      </div><!-- End Course Item -->
+  
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-item d-flex">
+          <div class="photo flex-shrink-0">
+            <img src="assets/img/03.jpg" alt="Técnico de Finanças" class="course-photo">
+          </div>
+          <div>
+            <h4 class="title">Técnico de Finanças</h4>
+            <p class="description">Formação em gestão financeira, análise de investimentos e administração de recursos financeiros.</p>
+          </div>
+        </div>
+      </div><!-- End Course Item -->
+  
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-item d-flex">
+          <div class="photo flex-shrink-0">
+            <img src="assets/img/04.jpg" alt="Técnico de Recursos Humanos" class="course-photo">
+          </div>
+          <div>
+            <h4 class="title">Técnico de Recursos Humanos</h4>
+            <p class="description">Curso para capacitar profissionais na gestão de pessoas e administração de talentos dentro de organizações.</p>
+          </div>
+        </div>
+      </div><!-- End Course Item -->
+  
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="500">
+        <div class="service-item d-flex">
+          <div class="photo flex-shrink-0">
+            <img src="assets/img/05.jpg" alt="Ciências Físicas e Biológicas" class="course-photo">
+          </div>
+          <div>
+            <h4 class="title">Ciências Físicas e Biológicas</h4>
+            <p class="description">Formação técnica nas áreas de ciências naturais, com foco em física e biologia.</p>
+          </div>
+        </div>
+      </div><!-- End Course Item -->
+  
+      <div class="col-lg-6" data-aos="fade-up" data-aos-delay="600">
+        <div class="service-item d-flex">
+          <div class="photo flex-shrink-0">
+            <img src="assets/img/06.jpg" alt="Ciências Económicas e Jurídicas" class="course-photo">
+          </div>
+          <div>
+            <h4 class="title">Ciências Económicas e Jurídicas</h4>
+            <p class="description">Curso voltado para a compreensão e aplicação dos fundamentos de economia e direito.</p>
+          </div>
+        </div>
+      </div><!-- End Course Item -->
+  
+    </div>
+  
+  </div>
+  
+
+</section>
+
+    <!-- Features Section -->
+    <section id="features" class="features section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Características</h2>
+        <p>Conheça os destaques do Colégio IMEG e o que torna nossa instituição única.</p>
+      </div><!-- End Section Title -->
+    
+      <div class="container">
+    
+        <div class="row gy-4 align-items-center features-item">
+          <div class="col-lg-5 order-2 order-lg-1" data-aos="fade-up" data-aos-delay="200">
+            <h3>Educação de Excelência e Infraestrutura Moderna</h3>
+            <p>
+              O Colégio IMEG oferece um ambiente de aprendizado inovador com infraestrutura moderna e recursos educacionais de ponta. Nossos alunos têm acesso a laboratórios bem equipados e tecnologia avançada para um aprendizado eficaz e envolvente.
+            </p>
+            <a href="#" class="btn btn-get-started">Saiba Mais</a>
+          </div>
+          <div class="col-lg-7 order-1 order-lg-2 d-flex align-items-center" data-aos="zoom-out" data-aos-delay="100">
+            <div class="image-stack">
+              <img src="assets/img/school.jpg" alt="" class="stack-front">
+              <img src="assets/img/school2.jpg" alt="" class="stack-back">
+            </div>
+          </div>
+        </div><!-- Features Item -->
+    
+        <div class="row gy-4 align-items-stretch justify-content-between features-item">
+          <div class="col-lg-6 d-flex align-items-center features-img-bg" data-aos="zoom-out">
+            <img src="assets/img/imeg.jpg" class="img-fluid" alt="Infraestrutura do Colégio IMEG">
+          </div>
+          <div class="col-lg-5 d-flex justify-content-center flex-column" data-aos="fade-up">
+            <h3>Currículo Diversificado e Atividades Extracurriculares</h3>
+            <p>Oferecemos um currículo diversificado que vai além das disciplinas tradicionais. Nosso colégio promove atividades extracurriculares que desenvolvem habilidades e talentos dos alunos, preparando-os para o futuro com uma educação completa.</p>
+            <ul>
+              <li><i class="bi bi-check"></i> <span>Currículo atualizado com as melhores práticas educacionais.</span></li>
+              <li><i class="bi bi-check"></i><span>Atividades extracurriculares que estimulam o desenvolvimento pessoal e profissional.</span></li>
+              <li><i class="bi bi-check"></i> <span>Ambiente de aprendizagem inclusivo e acolhedor.</span></li>
+            </ul>
+            <a href="#" class="btn btn-get-started align-self-start">Saiba Mais</a>
+          </div>
+        </div><!-- Features Item -->
+    
+      </div>
+    
+    </section>
+    
+    <section id="portfolio" class="portfolio section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Destaques</h2>
+        <p>Descubra os destaques e os momentos mais importantes e recentes do Colégio IMEG.</p>
+      </div><!-- End Section Title -->
+    
+      <div class="container">
+    
+        <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
+    
+          <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+            <li data-filter="*" class="filter-active">Todos</li>
+            <li data-filter=".filter-events">Eventos</li>
+            <li data-filter=".filter-activities">Atividades</li>
+            <li data-filter=".filter-facilities">Infraestrutura</li>
+          </ul><!-- End Portfolio Filters -->
+    
+          <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+    
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-events">
+              <img src="assets/img/12.jpg" class="img-fluid" alt="Evento 1">
+              <div class="portfolio-info">
+                <h4>Evento Escolar 1</h4>
+                <p>Descrição breve do evento.</p>
+                <a href="assets/img/12.jpg" title="Evento Escolar 1" data-gallery="portfolio-gallery-events" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+               
+              </div>
+            </div><!-- End Portfolio Item -->
+    
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-activities">
+              <img src="assets/img/11.jpg" class="img-fluid" alt="Atividade 1">
+              <div class="portfolio-info">
+                <h4>Atividade Extracurricular 1</h4>
+                <p>Descrição breve da atividade.</p>
+                <a href="assets/img/11.jpg" title="Atividade Extracurricular 1" data-gallery="portfolio-gallery-activities" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+               
+              </div>
+            </div><!-- End Portfolio Item -->
+    
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-facilities">
+              <img src="assets/img/10.jpg" class="img-fluid" alt="Infraestrutura 1">
+              <div class="portfolio-info">
+                <h4>Infraestrutura 1</h4>
+                <p>Descrição breve da infraestrutura.</p>
+                <a href="assets/img/10.jpg" title="Infraestrutura 1" data-gallery="portfolio-gallery-facilities" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+               
+              </div>
+            </div><!-- End Portfolio Item -->
+    
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-events">
+              <img src="assets/img/8.jpg" class="img-fluid" alt="Evento 2">
+              <div class="portfolio-info">
+                <h4>Evento Escolar 2</h4>
+                <p>Descrição breve do evento.</p>
+                <a href="assets/img/8.jpg" title="Evento Escolar 2" data-gallery="portfolio-gallery-events" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+               
+              </div>
+            </div><!-- End Portfolio Item -->
+    
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-activities">
+              <img src="assets/img/5.jpg" class="img-fluid" alt="Atividade 2">
+              <div class="portfolio-info">
+                <h4>Atividade Extracurricular 2</h4>
+                <p>Descrição breve da atividade.</p>
+                <a href="assets/img/5.jpg" title="Atividade Extracurricular 2" data-gallery="portfolio-gallery-activities" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+               
+              </div>
+            </div><!-- End Portfolio Item -->
+    
+            <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-facilities">
+              <img src="assets/img/6.jpg" class="img-fluid" alt="Infraestrutura 2">
+              <div class="portfolio-info">
+                <h4>Infraestrutura 2</h4>
+                <p>Descrição breve da infraestrutura.</p>
+                <a href="assets/img/6.jpg" title="Infraestrutura 2" data-gallery="portfolio-gallery-facilities" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
+               
+              </div>
+            </div><!-- End Portfolio Item -->
+    
+          </div><!-- End Portfolio Container -->
+    
+        </div>
+    
+      </div>
+    
+    </section>
+    
+   <!-- /Pricing Section -->
+    
+    <section id="faq" class="faq section">
+
+      <div class="container">
+    
+        <div class="row gy-4">
+    
+          <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="content px-xl-5">
+              <h3><span>Perguntas Frequentes</span></h3>
+              <p>Encontre respostas para as dúvidas mais comuns sobre o Colégio IMEG. Se a sua pergunta não estiver aqui, entre em contato conosco para mais informações.</p>
+            </div>
+          </div>
+    
+          <div class="col-lg-8" data-aos="fade-up" data-aos-delay="200">
+    
+            <div class="faq-container">
+              <div class="faq-item faq-active">
+                <h3><span class="num">1.</span> <span>Como posso me matricular no Colégio IMEG?</span></h3>
+                <div class="faq-content">
+                  <p>Para se matricular, acesse nossa página de matrículas e siga as instruções fornecidas. Você precisará fornecer alguns documentos e preencher um formulário online.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+    
+              <div class="faq-item">
+                <h3><span class="num">2.</span> <span>Quais são os requisitos para entrar no colégio?</span></h3>
+                <div class="faq-content">
+                  <p>Os requisitos variam conforme o nível de ensino. Em geral, são necessários documentos pessoais, histórico escolar e comprovante de residência. Consulte nossa página de admissões para detalhes específicos.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+    
+              <div class="faq-item">
+                <h3><span class="num">3.</span> <span>Qual é a abordagem pedagógica do Colégio IMEG?</span></h3>
+                <div class="faq-content">
+                  <p>Nosso colégio adota uma abordagem pedagógica inovadora focada no desenvolvimento integral dos alunos, com métodos de ensino que estimulam a criatividade, o pensamento crítico e o aprendizado ativo.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+    
+              <div class="faq-item">
+                <h3><span class="num">4.</span> <span>O colégio oferece atividades extracurriculares?</span></h3>
+                <div class="faq-content">
+                  <p>Sim, oferecemos uma ampla gama de atividades extracurriculares, incluindo esportes, artes, música e clubes acadêmicos. Consulte nossa página de atividades para mais informações sobre o que está disponível.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+    
+              <div class="faq-item">
+                <h3><span class="num">5.</span> <span>Como posso entrar em contato com a administração?</span></h3>
+                <div class="faq-content">
+                  <p>Você pode entrar em contato com a administração por e-mail, telefone ou através do nosso formulário de contato online. Todos os detalhes estão disponíveis na nossa página de contato.</p>
+                </div>
+                <i class="faq-toggle bi bi-chevron-right"></i>
+              </div><!-- End Faq item-->
+    
+            </div>
+    
+          </div>
+        </div>
+    
+      </div>
+    
+    </section><!-- /Faq Section -->
+    
+ 
+    <!-- Contact Section -->
+    <section id="contact" class="contact section">
+
+      <!-- Section Title -->
+      <div class="container section-title" data-aos="fade-up">
+        <h2>Contacte-nos</h2>
+        <p>Entre em contato com o Instituto Médio de Estética e Gestão (IMEG) para mais informações</p>
+      </div><!-- End Section Title -->
+    
+      <div class="container" data-aos="fade-up" data-aos-delay="100">
+    
+        <div class="row gy-4">
+    
+          <div class="col-lg-6">
+    
+            <div class="row gy-4">
+              <div class="col-md-6">
+                <div class="info-item" data-aos="fade" data-aos-delay="200">
+                  <i class="bi bi-geo-alt"></i>
+                  <h3>Endereço</h3>
+                  <p>Benfica - Zona Verde</p>
+                  <p>Rua M, Depois das Bombas da Sonangol</p>
+                </div>
+              </div><!-- End Info Item -->
+    
+              <div class="col-md-6">
+                <div class="info-item" data-aos="fade" data-aos-delay="300">
+                  <i class="bi bi-telephone"></i>
+                  <h3>Ligue-nos</h3>
+                  <p>+244 931 391 399</p>
+                  <p>+244 933 826 054</p>
+                  <p>+244 945 541 163</p>
+                  <p>+244 953 497 230</p>
+                </div>
+              </div><!-- End Info Item -->
+    
+              <div class="col-md-6">
+                <div class="info-item" data-aos="fade" data-aos-delay="400">
+                  <i class="bi bi-envelope"></i>
+                  <h3>Envie-nos um Email</h3>
+                  <p>institutomedio.imeg@gmail.com</p>
+                </div>
+              </div><!-- End Info Item -->
+    
+              <div class="col-md-6">
+                <div class="info-item" data-aos="fade" data-aos-delay="500">
+                  <i class="bi bi-clock"></i>
+                  <h3>Horário de Atendimento</h3>
+                  <p>Segunda a Sexta-feira</p>
+                  <p>8:00 AM - 4:00 PM</p>
+                </div>
+              </div><!-- End Info Item -->
+    
+            </div>
+    
+          </div>
+    
+          <div class="col-lg-6">
+            <form action="forms/contact.php" method="post" class="php-email-form" data-aos="fade-up" data-aos-delay="200">
+              <div class="row gy-4">
+    
+                <div class="col-md-6">
+                  <input type="text" name="name" class="form-control" placeholder="Seu Nome" required="">
+                </div>
+    
+                <div class="col-md-6">
+                  <input type="email" class="form-control" name="email" placeholder="Seu Email" required="">
+                </div>
+    
+                <div class="col-12">
+                  <input type="text" class="form-control" name="subject" placeholder="Assunto" required="">
+                </div>
+    
+                <div class="col-12">
+                  <textarea class="form-control" name="message" rows="6" placeholder="Mensagem" required=""></textarea>
+                </div>
+    
+                <div class="col-12 text-center">
+                  <div class="loading">Carregando</div>
+                  <div class="error-message"></div>
+                  <div class="sent-message">Sua mensagem foi enviada. Obrigado!</div>
+    
+                  <button type="submit">Enviar Mensagem</button>
+                </div>
+    
+              </div>
+            </form>
+          </div><!-- End Contact Form -->
+    
+        </div>
+    
+      </div>
+    
+    </section><!-- /Contact Section -->
+    
+  </main>
+
+  <footer id="footer" class="footer position-relative light-background">
+    <div class="container footer-top">
+        <div class="row gy-4">
+            <div class="col-lg-5 col-md-12 footer-about">
+                <a href="index.php" class="logo d-flex align-items-center">
+                    <span class="sitename">Instituto Médio de Estética e Gestão (IMEG)</span>
+                </a>
+                <p>O IMEG oferece uma educação de qualidade com cursos técnicos e PUNIV, focando no desenvolvimento profissional e acadêmico dos seus alunos. Inscreva-se agora para o ano letivo 2024-2025.</p>
+                <div class="social-links d-flex mt-4">
+                    <a href="https://twitter.com/" target="_blank"><i class="bi bi-twitter"></i></a>
+                    <a href="https://facebook.com/" target="_blank"><i class="bi bi-facebook"></i></a>
+                    <a href="https://instagram.com/" target="_blank"><i class="bi bi-instagram"></i></a>
+                    <a href="https://linkedin.com/" target="_blank"><i class="bi bi-linkedin"></i></a>
+                   
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-6 footer-links">
+                <h4>Links Úteis</h4>
+                <ul>
+                    <li><a href="index.php#hero">Início</a></li>
+                    <li><a href="index.php#about">Sobre</a></li>
+                    <li><a href="index.php#services">Cursos</a></li>
+                    <li><a href="#">Política de Privacidade</a></li>
+                    <li><a href="#">Termos de Serviço</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-2 col-6 footer-links">
+                <h4>Nossos Cursos</h4>
+                <ul>
+                    <li><a href="#">Finanças</a></li>
+                    <li><a href="#">Informática Técnica</a></li>
+                    <li><a href="#">Gestão Empresarial</a></li>
+                    <li><a href="#">Contabilidade e Gestão</a></li>
+                    <li><a href="#">Gestão de Recursos Humanos</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+                <h4>Contacte-nos</h4>
+                <p>
+                    IMEG - Instituto Médio de Estética e Gestão <br>
+                    Benfica - Zona Verde - rua M<br>
+                    Luanda, Angola<br>
+                </p>
+                <p><strong>Telefone:</strong> +244 931 391 399 / +244 933 826 054</p>
+                <p><strong>Email:</strong> institutomedio.imeg@gmail.com</p>
+                <p class="mt-4">
+                    <a href="https://wa.me/244931391399" target="_blank" class="whatsapp-link"><i class="bi bi-whatsapp"></i> Fale conosco via WhatsApp</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container copyright text-center mt-4">
+        <p>© <span>Copyright</span> <strong class="sitename">HORIZON</strong> <span>Todos os direitos reservados</span></p>
+     
+    </div>
+</footer>
+
+
+  <!-- Scroll Top -->
+  
+  <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+  
+  <!-- Preloader -->
+  <div id="preloader"></div>
+
+  <!-- Vendor JS Files -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/php-email-form/validate.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="assets/vendor/glightbox/js/glightbox.min.js"></script>
+  <script src="assets/vendor/purecounter/purecounter_vanilla.js"></script>
+  <script src="assets/vendor/imagesloaded/imagesloaded.pkgd.min.js"></script>
+  <script src="assets/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+  <script src="assets/vendor/swiper/swiper-bundle.min.js"></script>
+
+  <!-- Main JS File -->
+  <script src="assets/js/main.js"></script>
+
+</body>
+
+</html>

@@ -1,4 +1,12 @@
 <?php
+
+session_start();
+
+// Check if user is logged in and if user_id is 1
+if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != 1) {
+    header('Location: login.php'); // Redirect to login page if not logged in or user_id is not 1
+    exit();
+}
 // Conectar ao banco de dados
 $host = 'localhost'; // Ou o endereço do seu servidor
 $dbname = 'colegio_imeg_bd';
@@ -121,7 +129,7 @@ $conn->close();
                 </li>
             </ul>
             <div class="mt-auto">
-                <a href="#" class="nav-link">
+                <a href="logout.php" class="nav-link">
                     <i class="fa-solid fa-sign-out-alt"></i><span>Sair</span>
                 </a>
             </div>

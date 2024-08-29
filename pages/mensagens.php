@@ -20,53 +20,52 @@
 <div class="d-flex">
     <!-- Sidebar -->
     <div class="sidebar">
-        <div class="d-flex align-items-center justify-content-center mb-4">
-            <img src="../assets/img/logo.png" alt="Logo" style="width: 50px;">
+            <div class="d-flex align-items-center justify-content-center mb-4">
+                <img src="../assets/img/logo.png" alt="Logo" style="width: 50px;">
+            </div>
+            <ul class="nav flex-column">
+                <li class="nav-item">
+                    <a class="nav-link" href="home.php">
+                        <i class="fa-solid fa-chart-line"></i><span>Estado</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="mensagens.php">
+                        <i class="fa-solid fa-envelope"></i><span>Mensagens</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" href="galeria.php">
+                        <i class="fa-solid fa-image"></i><span>Destaques</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="alunos.php">
+                        <i class="fa-solid fa-users"></i><span>Alunos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="courses.php">
+                        <i class="fa-solid fa-book"></i><span>Cursos</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="subjects.php">
+                        <i class="fa-solid fa-book-open"></i><span>Disciplinas</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="grades.php">
+                        <i class="fa-solid fa-table"></i><span>Notas</span>
+                    </a>
+                </li>
+            </ul>
+            <div class="mt-auto">
+                <a href="logout.php" class="nav-link">
+                    <i class="fa-solid fa-sign-out-alt"></i><span>Sair</span>
+                </a>
+            </div>
         </div>
-        <ul class="nav flex-column">
-            <!-- Navigation items -->
-            <li class="nav-item">
-                <a class="nav-link" href="home.html">
-                    <i class="fa-solid fa-chart-line"></i><span>Estado</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" href="mensagens.html">
-                    <i class="fa-solid fa-envelope"></i><span>Mensagens</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="galeria.html">
-                    <i class="fa-solid fa-image"></i><span>Destaques</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="alunos.html">
-                    <i class="fa-solid fa-users"></i><span>Alunos</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="courses.html">
-                    <i class="fa-solid fa-book"></i><span>Cursos</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="subjects.html">
-                    <i class="fa-solid fa-book-open"></i><span>Disciplinas</span>
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="grades.html">
-                    <i class="fa-solid fa-table"></i><span>Notas</span>
-                </a>
-            </li>
-        </ul>
-        <div class="mt-auto">
-            <a href="#" class="nav-link">
-                <i class="fa-solid fa-sign-out-alt"></i><span>Sair</span>
-            </a>
-        </div>
-    </div>
 
     <!-- Content -->
     <div class="content flex-grow-1">
@@ -74,6 +73,13 @@
         <!-- Lista de Mensagens -->
         <div id="messages-container">
             <?php
+            session_start();
+
+            // Check if user is logged in and if user_id is 1
+            if (!isset($_SESSION['user_id']) || $_SESSION['user_id'] != 1) {
+                header('Location: login.php'); // Redirect to login page if not logged in or user_id is not 1
+                exit();
+            }
             // Conectar ao banco de dados
             $servername = "localhost";
             $username = "root";
