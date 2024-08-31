@@ -1,6 +1,3 @@
-Here's the updated README with the link to your repository:
-
----
 
 # Mini Management System for the IMEG Private School Complex
 
