@@ -1,9 +1,16 @@
+Here's the updated README with the link to your repository:
+
+---
 
 # Mini Management System for the IMEG Private School Complex
 
 ## Description
 
 This project aims to develop a school management system using a database to store and manage information about courses, subjects, students, and grades. The goal is to provide an easy-to-use interface for administrators and system users to efficiently access and manipulate school data.
+
+## Repository
+
+You can find the project repository on GitHub: [colegio_imeg_project](https://github.com/OrlandoMartinho/colegio_imeg_project/tree/full-stack-feacture).
 
 ## Database Structure
 
@@ -40,7 +47,7 @@ The project documentation is located in the `docs` folder. Inside this folder, y
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/your-username/your-repository.git
+   git clone https://github.com/OrlandoMartinho/colegio_imeg_project/tree/full-stack-feacture.git
    ```
 
 2. **Set Up the Database**:
